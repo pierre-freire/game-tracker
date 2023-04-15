@@ -14,5 +14,5 @@ const games = [
 ]
 
 export function getGames() {
-  return games[0]
+  return games
 }

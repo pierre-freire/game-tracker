@@ -1,7 +1,9 @@
 <script setup>
 defineProps({
-  games: Object,
+  games: Array,
 })
+
+//background: linear-gradient(45deg, #0B1641 0%, #C70160 100%), linear-gradient(0deg, #FFFFFF, #FFFFFF);
 
 function replaceDot(price) {
   return price.replace('.', ',')
@@ -9,27 +11,28 @@ function replaceDot(price) {
 
 function roundedDiscount(discount) {
   const save = Math.round(discount)
-  
-  if(save === 0) return 'GRÁTIS'
+
+  if(save == 100) return 'GRÁTIS'
   return `-${save}%`
 }
 </script>
 
 <template>
   <ul class="game-list">
-    <li class="game-list__item">
+    <li v-for="game in games" class="game-list__item">
       <img
         class="game-list__item-cover"
-        :src="games.thumb" 
+        loading="lazy"
+        :src="game.thumb" 
       />
-      <p class="game-list__item-title">{{ games.title }}</p>
+      <p class="game-list__item-title">{{ game.title }}</p>
       <div class="game-list__item-info">
         <button class="game-list__item-button">DETALHES</button>
         <ul class="game-list__item-prices">
-          <li class="game-list__prices game-list__prices--normal-price">${{ replaceDot(games.normalPrice) }}</li>
-          <li class="game-list__prices">${{ replaceDot(games.salePrice) }}</li>
+          <li class="game-list__prices game-list__prices--normal-price">${{ replaceDot(game.normalPrice) }}</li>
+          <li class="game-list__prices">${{ replaceDot(game.salePrice) }}</li>
         </ul>
-        <li class="game-list__saving">{{ roundedDiscount(games.savings) }}</li>
+        <li class="game-list__saving">{{ roundedDiscount(game.savings) }}</li>
       </div>
     </li>
   </ul>
@@ -39,6 +42,8 @@ function roundedDiscount(discount) {
   .game-list {
     list-style-type: none;
     padding: 0 8px;
+    display: grid;
+    gap: 20px;
   }
 
   .game-list__item {
@@ -47,6 +52,8 @@ function roundedDiscount(discount) {
     background: #0B1641;
     border-radius: 6px;
     overflow: hidden;
+    box-shadow: 0px 3px 3px 0px #00000040;
+    padding-bottom: 12px;
   }
 
   .game-list__item-cover {
@@ -93,10 +100,10 @@ function roundedDiscount(discount) {
     font-size: 14px;
     background-color: #C70160;
     border-radius: 6px;
-    padding: 7px 12px;
+    padding: 0 12px;
     width: 92px;
-    height: 36px;
-    margin-bottom: 12px;
+    height: 30px;
+    line-height: 16px;
   }
 
   .game-list__saving {
@@ -107,6 +114,5 @@ function roundedDiscount(discount) {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 12px;
   }
 </style>

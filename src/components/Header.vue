@@ -14,6 +14,7 @@
   display: flex;
   justify-content: center;
   padding: 11px 0;
+  margin-bottom: 8px;
 }
 
 .header__logo {
