@@ -69,6 +69,7 @@ button:focus-visible {
 
 #app {
   width: 100vw;
+  height: 100%;
   box-sizing: border-box;
   background: linear-gradient(86deg, rgba(11,22,65,1) 15%, rgba(199,1,96,1) 90%);
 }

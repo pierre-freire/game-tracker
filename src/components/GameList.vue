@@ -1,9 +1,14 @@
 <script setup>
-defineProps({
-  games: Array,
+import { onBeforeMount, computed } from "vue";
+import { useGamesStore } from "../store/games";
+
+const gamesStore = useGamesStore();
+
+onBeforeMount(() => {
+  gamesStore.filterGames('')
 })
 
-//background: linear-gradient(45deg, #0B1641 0%, #C70160 100%), linear-gradient(0deg, #FFFFFF, #FFFFFF);
+const gamesList = computed(() => gamesStore.getFilteredGames)
 
 function replaceDot(price) {
   return price.replace('.', ',')
@@ -18,8 +23,8 @@ function roundedDiscount(discount) {
 </script>
 
 <template>
-  <ul class="game-list">
-    <li v-for="game in games" class="game-list__item">
+  <ul v-if="gamesList.length > 0" class="game-list">
+    <li v-for="game in gamesList" class="game-list__item">
       <img
         class="game-list__item-cover"
         loading="lazy"
@@ -36,6 +41,7 @@ function roundedDiscount(discount) {
       </div>
     </li>
   </ul>
+  <div v-else>não encontramos nenhum jogo</div>
 </template>
 
 <style scoped>
