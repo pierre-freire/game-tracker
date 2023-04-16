@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup>
+</script>
 <template>
   <header class="header">
     <img class="header__logo" src='./../assets/logo.svg' />
