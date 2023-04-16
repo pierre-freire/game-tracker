@@ -6,7 +6,7 @@ const searchText = ref('');
 const gamesStore = useGamesStore();
 
 function searchValue() {
-  gamesStore.filterGames(searchText.value);
+  gamesStore.searchGames(searchText.value);
 }
 </script>
 

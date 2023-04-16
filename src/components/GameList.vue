@@ -5,7 +5,7 @@ import { useGamesStore } from "../store/games";
 const gamesStore = useGamesStore();
 
 onBeforeMount(() => {
-  gamesStore.filterGames('')
+  gamesStore.searchGames('')
 })
 
 const gamesList = computed(() => gamesStore.getFilteredGames)
@@ -41,15 +41,22 @@ function roundedDiscount(discount) {
       </div>
     </li>
   </ul>
-  <div v-else>não encontramos nenhum jogo</div>
+  <div v-else class="empty-state">
+    <img
+      class="empty-state__logo"
+      loading="lazy"
+      src="../assets/logo.svg" 
+    />
+    <p class="empty-state__title">Não encontramos nenhum jogo</p>
+  </div>
 </template>
 
 <style scoped>
   .game-list {
     list-style-type: none;
-    padding: 0 8px;
     display: grid;
     gap: 20px;
+    padding-left: 0;
   }
 
   .game-list__item {
@@ -120,5 +127,19 @@ function roundedDiscount(discount) {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .empty-state {
+    background-color: #888888;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 6px;
+    padding: 8px;
+  }
+
+  .empty-state__logo {
+    width: 116px;
   }
 </style>
