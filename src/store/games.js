@@ -276,7 +276,7 @@ export const useGamesStore = defineStore("games", {
     }
   },
   actions: {
-    filterGames(inputText) {
+    searchGames(inputText) {
       if(inputText === '') {
         this.filteredGames = this.games
         return
