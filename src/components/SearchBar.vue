@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from "vue"; 
+import { ref, watch } from "vue"; 
 import { useGamesStore } from "../store/games";
 
 const searchText = ref('');
 const gamesStore = useGamesStore();
+
+watch(searchText, () => {
+  gamesStore.searchGames(searchText.value);
+})
 
 function searchValue() {
   gamesStore.searchGames(searchText.value);
@@ -17,7 +21,6 @@ function searchValue() {
       placeholder="Pesquisar"
       type="text"
       v-model="searchText"
-      @change="searchValue"
     />
   </label>
 </template>
@@ -25,6 +28,8 @@ function searchValue() {
 <style scoped>
 .input-wrapper {
   position: relative;
+  width: 174px;
+  display: block;
 }
 .input-wrapper::before {
   content: "";
@@ -33,7 +38,7 @@ function searchValue() {
   width: 13px;
   background-image: url("../assets/search.svg");
   z-index: 1;
-  top: 6px;
+  top: 12px;
   left: 13px;
 }
 .input {
@@ -44,5 +49,15 @@ function searchValue() {
   position: relative;
   height: 36px;
   font-size: 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (min-width: 321px) {
+  .input-wrapper {
+    width: 100%;
+    max-width: 380px;
+    min-width: 174px;
+  }
 }
 </style>
