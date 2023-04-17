@@ -3,7 +3,7 @@
 <template>
   <header class="header">
     <img class="header__logo" src='./../assets/logo.svg' />
-    <h1 class="header__title">Game <b>Tracker</b></h1>
+    <p class="header__title">Game <b>Tracker</b></p>
   </header>
 </template>
 
@@ -16,6 +16,10 @@
   justify-content: center;
   padding: 11px 0;
   margin-bottom: 8px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .header__logo {
@@ -30,5 +34,14 @@
   font-size: 24px;
   font-weight: 300;
   color: #FFFFFF;
+}
+
+@media (min-width: 321px) {
+  .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 }
 </style>

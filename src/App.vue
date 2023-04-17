@@ -7,9 +7,33 @@ import Sort from "./components/Sort.vue"
 
 <template>
   <TheHeader />
-  <SearchBar />
-  <Sort />
+  <h1 class="page-title">Ofertas</h1>
+  <div class="filters-wrapper">
+    <SearchBar />
+    <Sort />
+  </div>
   <GameList />
 </template>
 
-<style scoped></style>
+<style scoped>
+.page-title {
+  margin: 76px 0 4px;
+  font-weight: 300;
+  font-size: 18px;  
+  text-align: center;
+}
+.filters-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: end;
+}
+
+@media (min-width: 321px) {
+  .page-title {
+    text-align: left;
+    font-size: 36px;
+    margin-bottom: 22px;
+  }
+}
+</style>
