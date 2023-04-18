@@ -2,7 +2,7 @@
 
 <template>
   <footer class="footer">
-    <img class="footer__logo" src="../assets/logo.svg" />
+    <img class="footer__logo" loading="lazy" src="../assets/logo.svg" />
     <p class="footer__copyright-text">
       © 2021, Game Tracker Inc. Todos os direitos reservados. Nulla facilisi.
       Etiam sagittis congue tempor. Pellentesque habitant morbi tristique

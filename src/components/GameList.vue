@@ -4,11 +4,6 @@ import { useGamesStore } from "../store/games";
 import { roundedDiscount, replaceDot } from "../util";
 
 const gamesStore = useGamesStore();
-
-onBeforeMount(() => {
-  gamesStore.searchGames("");
-});
-
 const gamesList = computed(() => gamesStore.getFilteredGames);
 </script>
 
@@ -21,9 +16,9 @@ const gamesList = computed(() => gamesStore.getFilteredGames);
         <button class="game-list__item-button">DETALHES</button>
         <ul class="game-list__item-prices">
           <li class="game-list__prices game-list__prices--normal-price">
-            ${{ replaceDot(game.normalPrice) }}
+            {{ replaceDot(game.normalPrice) }}
           </li>
-          <li class="game-list__prices">${{ replaceDot(game.salePrice) }}</li>
+          <li class="game-list__prices">{{ replaceDot(game.salePrice) }}</li>
         </ul>
         <li class="game-list__saving">{{ roundedDiscount(game.savings) }}</li>
       </div>
@@ -40,7 +35,7 @@ const gamesList = computed(() => gamesStore.getFilteredGames);
   list-style-type: none;
   display: grid;
   gap: 20px;
-  padding-left: 0;
+  padding: 0 8px 0;
 }
 
 .game-list__item {
