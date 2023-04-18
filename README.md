@@ -1,7 +1,45 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Game Tracker
 
-## Recommended IDE Setup
+Este é um projeto desenvolvido em Vue 3, Vite, Axios e Pinia para listar jogos.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+
+
+## Stack utilizada
+
+**Vue3:** - Framework JavaScript
+
+**Vite:** - Ferramenta rápida e dinâmica para criação de projetos
+
+**Axios:** - Biblioteca para fazer requisições HTTP
+
+**Pinia:** - Gerenciamendor de estados para Vue 3
+
+## Funcionalidades
+
+- Listagem de jogos;
+- Busca de jogos por nome;
+- Ordenação de jogos por preço;
+- Ordenação de jogos por desconto;
+- Ordenação de jogos por título;
+## Instalação e execução do projeto`
+
+1. Clone este repositório:
+```bash
+  git clone https://github.com/pierre-freire/game-tracker.git
+```
+
+2. Instale as dependências do projeto:
+```bash
+  yarn install
+```
+
+3. Inicie o servidor local:
+```bash
+  yarn dev
+```
+
+4. Acesse o projeto em seu navegador através do endereço http://localhost:3000.
+## Licença
+
+[MIT](https://choosealicense.com/licenses/mit/): Este projeto é licenciado sob a Licença MIT
