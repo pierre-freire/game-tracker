@@ -1,6 +1,7 @@
 <script setup>
 import { onBeforeMount, computed } from "vue";
 import { useGamesStore } from "../store/games";
+import { roundedDiscount, replaceDot } from "../util";
 
 const gamesStore = useGamesStore();
 
@@ -9,17 +10,6 @@ onBeforeMount(() => {
 });
 
 const gamesList = computed(() => gamesStore.getFilteredGames);
-
-function replaceDot(price) {
-  return price.replace(".", ",");
-}
-
-function roundedDiscount(discount) {
-  const save = Math.round(discount);
-
-  if (save == 100) return "GRÁTIS";
-  return `-${save}%`;
-}
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script setup>
 import TheHeader from "./components/TheHeader.vue";
+import TheFooter from "./components/TheFooter.vue"
 import GameList from "./components/GameList.vue";
 import SearchBar from "./components/SearchBar.vue";
 import Sort from "./components/Sort.vue"
@@ -7,12 +8,14 @@ import Sort from "./components/Sort.vue"
 
 <template>
   <TheHeader />
-  <h1 class="page-title">Ofertas</h1>
-  <div class="filters-wrapper">
-    <SearchBar />
-    <Sort />
+  <div class="app-body">
+    <h1 class="page-title">Ofertas</h1>
+    <div class="filters-wrapper">
+      <SearchBar />
+      <Sort />
+    </div>
   </div>
-  <GameList />
+  <TheFooter />
 </template>
 
 <style scoped>
@@ -35,5 +38,16 @@ import Sort from "./components/Sort.vue"
     font-size: 36px;
     margin-bottom: 22px;
   }
+
+  .app-body {
+    padding: 0px 8px;
+  }
 }
+
+@media (min-width: 1058px) {
+  .app-body {
+    padding: 0px 130px;
+  }
+}
+
 </style>
