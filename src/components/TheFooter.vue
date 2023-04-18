@@ -58,4 +58,22 @@
 .footer__navbar-item:last-of-type {
   margin-bottom: 0;
 }
+
+@media (min-width: 321px) {
+  .footer__logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer__copyright-text {
+    margin: 14px 0 12px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .footer__navbar {
+    display: flex;
+    gap: 46px;
+  }
+}
 </style>

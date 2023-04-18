@@ -10,7 +10,16 @@ const gamesList = computed(() => gamesStore.getFilteredGames);
 <template>
   <ul v-if="gamesList.length > 0" class="game-list">
     <li v-for="game in gamesList" class="game-list__item">
-      <img class="game-list__item-cover" loading="lazy" :src="game.thumb" />
+      <img
+        v-if="game.thumb"
+        class="game-list__item-cover"
+        loading="lazy"
+        :src="game.thumb"
+      />
+      <div v-else class="game-list__empty-wrapper">
+        <img src="../assets/logo.svg" class="game-list__empty-cover" />
+        <p class="game-list__empty-text">Sem imagem</p>
+      </div>
       <p class="game-list__item-title">{{ game.title }}</p>
       <div class="game-list__item-info">
         <button class="game-list__item-button">DETALHES</button>
@@ -51,6 +60,24 @@ const gamesList = computed(() => gamesStore.getFilteredGames);
 .game-list__item-cover {
   width: 100%;
   height: 95px;
+}
+
+.game-list__empty-wrapper {
+  width: 100%;
+  height: 95px;
+  padding: 8px;
+  box-sizing: border-box;
+  background: #888888;
+  text-align: center;
+
+}
+
+.game-list__empty-cover {
+  width: 52px;
+}
+
+.game-list__empty-text {
+  margin: 0;
 }
 
 .game-list__item-title {
@@ -113,9 +140,10 @@ const gamesList = computed(() => gamesStore.getFilteredGames);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  margin: 20px 0;
   border-radius: 6px;
   padding: 8px;
+  align-self: center;
 }
 
 .empty-state__logo {
