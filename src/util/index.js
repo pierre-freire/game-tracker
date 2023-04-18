@@ -1,5 +1,5 @@
 export function replaceDot(price) {
-  return price.replace(".", ",");
+  return `$${price.replace(".", ",")}`;
 }
 
 export function roundedDiscount(discount) {

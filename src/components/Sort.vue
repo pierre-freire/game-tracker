@@ -20,6 +20,7 @@ function searchValue(sortValue) {
     gamesStore.sortGames(sortValue.target.value.slice(0, -1), "bigger");
     return;
   }
+
   gamesStore.sortGames(sortValue.target.value);
 }
 </script>

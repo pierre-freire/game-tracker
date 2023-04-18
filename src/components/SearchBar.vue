@@ -8,10 +8,6 @@ const gamesStore = useGamesStore();
 watch(searchText, () => {
   gamesStore.searchGames(searchText.value);
 })
-
-function searchValue() {
-  gamesStore.searchGames(searchText.value);
-}
 </script>
 
 <template>

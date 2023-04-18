@@ -1,9 +1,17 @@
 <script setup>
 import TheHeader from "./components/TheHeader.vue";
-import TheFooter from "./components/TheFooter.vue"
+import TheFooter from "./components/TheFooter.vue";
 import GameList from "./components/GameList.vue";
 import SearchBar from "./components/SearchBar.vue";
-import Sort from "./components/Sort.vue"
+import Sort from "./components/Sort.vue";
+import { onBeforeMount } from "vue";
+import { useGamesStore } from "./store/games";
+
+const gamesStore = useGamesStore();
+
+onBeforeMount(async () => {
+  gamesStore.getGames()
+});
 </script>
 
 <template>
@@ -14,6 +22,7 @@ import Sort from "./components/Sort.vue"
       <SearchBar />
       <Sort />
     </div>
+    <GameList />
   </div>
   <TheFooter />
 </template>
@@ -22,7 +31,7 @@ import Sort from "./components/Sort.vue"
 .page-title {
   margin: 76px 0 4px;
   font-weight: 300;
-  font-size: 18px;  
+  font-size: 18px;
   text-align: center;
 }
 .filters-wrapper {
@@ -49,5 +58,4 @@ import Sort from "./components/Sort.vue"
     padding: 0px 130px;
   }
 }
-
 </style>
